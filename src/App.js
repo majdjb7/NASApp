@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Favourites from './components/Favourites';
@@ -7,6 +7,9 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 
 function App() {
+  let [universeObjects, setUniverseObjects] = useState([])
+
+
   return (
     <Router>
       <Navbar />
