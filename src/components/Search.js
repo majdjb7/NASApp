@@ -9,14 +9,14 @@ export default function Search() {
 
     const search = async () => {
         const response = await axios.get(`https://images-api.nasa.gov/search?q=${input}`)
-        setData(response.data.collection.items)
+        setAstronomyVideo(response.data.collection.items)
     }
 
 
     return (
         <div>
             <input type="text" value={input} placeholder='Search the Universe'></input>
-            <button>Search</button>
+            <button onClick={search}>Search</button>
         </div>
     )
 }
