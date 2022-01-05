@@ -1,10 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/search.css'
+import axios from 'axios'
 
 export default function Search() {
+    let [input, setInput] = useState("")
+    let [astronomyVideo, setAstronomyVideo] = useState([])
+
+
+    const search = async () => {
+        const response = await axios.get(`https://images-api.nasa.gov/search?q=${input}`)
+        setData(response.data.collection.items)
+    }
+
+
     return (
         <div>
-            <h1>Search</h1>
+            <input type="text" value={input} placeholder='Search the Universe'></input>
+            <button>Search</button>
         </div>
     )
 }
