@@ -1,0 +1,22 @@
+.title {
+    text-align: center;
+    margin-top: 90px;
+    font-size: 40px;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    /* margin-right: 60px; */
+    width:610;
+    height: 80%
+}
+
+.desc {
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+}

@@ -1,13 +1,13 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import '../styles/home.css'
+import axios from 'axios'
+import MediaCard from './MediaCard';
 
-export default function Home() {
+export default function Home(props) {
+
     return (
         <div>
-            <h1>Home</h1>
-            <div>Title: {}</div>
-            <div>Image: {}</div>
-            <div>Description: {}</div>
+            <MediaCard astronomyObject={props.astronomyObject}  />
         </div>
     )
 }
