@@ -16,9 +16,8 @@ export default function MediaCard(props) {
                     <div className='desc'>{astronomyObject.description}</div>
                 </div>
             : null}
-                {/* <div>Title: {astronomyObject.title}</div>
-                <img src={astronomyObject.imageURL}></img>
-                <div>Description: {astronomyObject.description}</div> */}
+            
+            
         </div>
     )
 }
