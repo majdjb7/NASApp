@@ -1,20 +1,18 @@
 const express = require('express')
 const router = express.Router()
 const AstronomyItem = require('../models/AstronomyItem')
-const API_KEY = "gNMncZvQy1d1KpqbW5LE2ndgC155lmhvWnwEGeaE"
-const axios = require('axios')
 
-// router.get('/galaxy', function(req, res) {
-//     try {
-//         AstronomyItem.find({}, function(err, astronomyItem) {
-//             res.send(astronomyItem)
-//         })
-//     }
-//     catch(error) {
-//         console.log(error)
-//         res.send(error)
-//     }
-// })
+router.get('/astronomy', function(req, res) {
+    try {
+        AstronomyItem.find({}, function(err, astronomyItem) {
+            res.send(astronomyItem)
+        })
+    }
+    catch(error) {
+        console.log(error)
+        res.send(error)
+    }
+})
 
 router.post('/astronomy', function(req, res) {
     try {
@@ -33,7 +31,6 @@ router.post('/astronomy', function(req, res) {
 })
 
 router.delete('/astronomy/:title', function(req, res) {
-    console.log(req.params.title)
     try {
         AstronomyItem.findOneAndDelete({title: req.params.title}, function(err, astronomy) {
             res.send(astronomy)

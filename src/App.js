@@ -9,8 +9,13 @@ import axios from 'axios'
 function App() {
   let [savedData, setSavedData] = useState([])
 
+  useEffect( async () => {
+    let result = await axios.get(`http://localhost:3001/astronomy`)
+    let favouritesArray = result.data
+    setSavedData(favouritesArray)
+  }, []);
+
   const saveToDB = (astronomyObject) => {
-    console.log(astronomyObject)
     axios.post(`http://localhost:3001/astronomy`, { astronomyObject })
     
     let favouritesArray = [...savedData]
@@ -18,19 +23,7 @@ function App() {
     setSavedData(favouritesArray)
   }
 
-  /*
-   deleteTransaction = (transactionId) => {
-    let transactions = [...this.state.transactions]
-    let indexOfTransaction = transactions.findIndex(tr => tr._id==transactionId)
-    // axios.delete(`/transaction/${transactionId}`)
-    axios.delete(`http://localhost:3001/transaction/${transactionId}`)
-    transactions.splice(indexOfTransaction, 1)
-    this.setState({ transactions })
-  }
-  */
-
   const deleteFromDB = (astronomyObject) => {
-    console.log(astronomyObject)
     let favouritesArray = [...savedData]
     let indexOfObject = savedData.findIndex(s => s.title==astronomyObject.title)
     axios.delete(`http://localhost:3001/astronomy/${astronomyObject.title}`)

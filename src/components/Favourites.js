@@ -3,7 +3,6 @@ import '../styles/favourites.css'
 import MediaCard from './MediaCard';
 
 export default function Favourites(props) {
-    console.log(props);
     let favourites = props.savedData
     return (
         <div>
