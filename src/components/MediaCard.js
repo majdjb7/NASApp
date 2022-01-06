@@ -7,6 +7,7 @@ export default function MediaCard(props) {
     let isFavourite = props.isFavourite
 
     const saveToDB = () => {
+        isFavourite = false
         props.saveToDB(astronomyObject)
     }
 
