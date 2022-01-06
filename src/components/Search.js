@@ -40,7 +40,8 @@ export default function Search(props) {
                 placeholder='Search the Universe'>
             </input>
             <button onClick={search}>Search</button>
-            {astronomySearchRes.map(m => <MediaCard key={m.index}
+            {astronomySearchRes.map(m => <MediaCard
+                                            key={m.index}
                                             astronomyObject={m}
                                             isFavourite={false}
                                             showDesc={false}
