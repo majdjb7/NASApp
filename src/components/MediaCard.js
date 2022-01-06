@@ -4,9 +4,8 @@ import '../styles/mediaCard.css'
 export default function MediaCard(props) {
     let astronomyObject = props.astronomyObject
     let showDescription = props.showDesc
-
     const saveToDB = () => {
-        this.props.saveToDB()
+        props.saveToDB(astronomyObject)
     }
 
     return (
@@ -17,7 +16,7 @@ export default function MediaCard(props) {
                     <div className='img-wrapper'>
                         <img width="610" height="385" className='img' src={astronomyObject.imageURL}></img>
                     </div>
-                    {showDescription ? <div className='desc'>{astronomyObject.description}</div> : <button>Like</button>}
+                    {showDescription ? <div className='desc'>{astronomyObject.description}</div> : <button onClick={saveToDB}>Like</button>}
                     
                 </div>
             : null}

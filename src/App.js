@@ -7,8 +7,8 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 function App() {
 
-  const saveToDB = () => {
-    console.log("SAVE TO DB")
+  const saveToDB = (astronomyObject) => {
+    console.log(astronomyObject)
   }
   
   return (

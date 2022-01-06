@@ -18,10 +18,11 @@ export default function Search(props) {
         let allSearchResults = []
         for(let i in results) {
             if(response.data.collection.items[i].links) {
+                let index = i
                 let title = response.data.collection.items[i].data[0].title
                 let imageURL = response.data.collection.items[i].links[0].href
                 let description = response.data.collection.items[i].data[0].description
-                let astrologocalObject = {title: title, imageURL: imageURL, description: description}
+                let astrologocalObject = {index: index, title: title, imageURL: imageURL, description: description}
                 allSearchResults.push(astrologocalObject)
             }
         }
@@ -33,7 +34,7 @@ export default function Search(props) {
         <div>
             <input type="text" value={input} onChange={onChange} placeholder='Search the Universe'></input>
             <button onClick={search}>Search</button>
-            {astronomySearchRes.map(m => <MediaCard astronomyObject={m} showDesc={false} saveToDB={props.saveToDB}/>)}
+            {astronomySearchRes.map(m => <MediaCard key={m.index} astronomyObject={m} showDesc={false} saveToDB={props.saveToDB}/>)}
         </div>
     )
 }
