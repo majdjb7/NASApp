@@ -2,10 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const astronomyItemSchema = new Schema({
-    id: Number,
-    amount: Number,
-    vendor: String,
-    category: String
+    title: String,
+    imageURL: String,
+    description: String
 })
 
 const AstronomyItem = mongoose.model("AstronomyItem", astronomyItemSchema)

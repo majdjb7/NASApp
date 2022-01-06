@@ -4,7 +4,7 @@ const path = require('path')
 const api = require('./server/routes/api')
 const mongoose = require('mongoose')
 
-mongoose.connect(process.env.MONGODB_URL||'mongodb://localhost/bankDB', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URL||'mongodb://localhost/NASADB', { useNewUrlParser: true })
     .then(() => console.log("connected")).catch((error) => console.log(error))
 
 const app = express()
