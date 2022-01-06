@@ -6,13 +6,17 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 function App() {
+
+  const saveToDB = () => {
+    console.log("SAVE TO DB")
+  }
   
   return (
     <Router>
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search" element={<Search saveToDB={saveToDB}/>} />
           <Route path="/favourites" element={<Favourites />} />
         </Routes>
     </Router>

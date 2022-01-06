@@ -3,7 +3,7 @@ import '../styles/search.css'
 import axios from 'axios'
 import MediaCard from './MediaCard'
 
-export default function Search() {
+export default function Search(props) {
     let [input, setInput] = useState("")
     let [astronomySearchRes, setAstronomySearchRes] = useState([])
 
@@ -29,13 +29,11 @@ export default function Search() {
 
     }
 
-    console.log(astronomySearchRes);
-
     return (
         <div>
             <input type="text" value={input} onChange={onChange} placeholder='Search the Universe'></input>
             <button onClick={search}>Search</button>
-            {astronomySearchRes.map(m => <MediaCard astronomyObject={m} showDesc={false}/>)}
+            {astronomySearchRes.map(m => <MediaCard astronomyObject={m} showDesc={false} saveToDB={props.saveToDB}/>)}
         </div>
     )
 }

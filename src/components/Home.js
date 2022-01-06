@@ -19,7 +19,7 @@ export default function Home(props) {
         })
 
     }, [])
-    console.log(astronomyObject)
+
     return (
         <div>
             <MediaCard astronomyObject={astronomyObject} showDesc={true}/>

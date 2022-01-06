@@ -5,8 +5,8 @@ export default function MediaCard(props) {
     let astronomyObject = props.astronomyObject
     let showDescription = props.showDesc
 
-    const addToDB = () => {
-
+    const saveToDB = () => {
+        this.props.saveToDB()
     }
 
     return (
