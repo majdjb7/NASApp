@@ -1,22 +1,41 @@
 import React, {useState, useEffect} from 'react'
 import '../styles/search.css'
 import axios from 'axios'
+import MediaCard from './MediaCard'
 
 export default function Search() {
     let [input, setInput] = useState("")
-    let [astronomyVideo, setAstronomyVideo] = useState([])
+    let [astronomySearchRes, setAstronomySearchRes] = useState([])
 
+    const onChange = (event) => {
+        setInput(event.target.value)
+    }
 
     const search = async () => {
         const response = await axios.get(`https://images-api.nasa.gov/search?q=${input}`)
-        setAstronomyVideo(response.data.collection.items)
+        setAstronomySearchRes(response.data.collection.items)
+        let results = response.data.collection.items
+        let allSearchResults = []
+        for(let i in results) {
+            if(response.data.collection.items[i].links) {
+                let title = response.data.collection.items[i].data[0].title
+                let imageURL = response.data.collection.items[i].links[0].href
+                let description = response.data.collection.items[i].data[0].description
+                let astrologocalObject = {title: title, imageURL: imageURL, description: description}
+                allSearchResults.push(astrologocalObject)
+            }
+        }
+        setAstronomySearchRes(allSearchResults);
+
     }
 
+    console.log(astronomySearchRes);
 
     return (
         <div>
-            <input type="text" value={input} placeholder='Search the Universe'></input>
+            <input type="text" value={input} onChange={onChange} placeholder='Search the Universe'></input>
             <button onClick={search}>Search</button>
+            {astronomySearchRes.map(m => <MediaCard astronomyObject={m} showDesc={false}/>)}
         </div>
     )
 }
