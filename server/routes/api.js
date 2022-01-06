@@ -32,22 +32,17 @@ router.post('/astronomy', function(req, res) {
     }
 })
 
-// router.delete('/transaction/:id', function(req, res) {
-//     try {
-//         Transaction.findOneAndDelete({_id: req.params.id}, function(err, transaction) {
-//             res.send(transaction)
-//         })
-//     }
-//     catch(error) {
-//         console.log(error)
-//         res.send(error)
-//     }
-// })
-
-// })
-
-
-
-
+router.delete('/astronomy/:title', function(req, res) {
+    console.log(req.params.title)
+    try {
+        AstronomyItem.findOneAndDelete({title: req.params.title}, function(err, astronomy) {
+            res.send(astronomy)
+        })
+    }
+    catch(error) {
+        console.log(error)
+        res.send(error)
+    }
+})
 
 module.exports = router
