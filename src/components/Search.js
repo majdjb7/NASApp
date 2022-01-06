@@ -34,7 +34,7 @@ export default function Search(props) {
         <div>
             <input type="text" value={input} onChange={onChange} placeholder='Search the Universe'></input>
             <button onClick={search}>Search</button>
-            {astronomySearchRes.map(m => <MediaCard key={m.index} astronomyObject={m} showDesc={false} saveToDB={props.saveToDB}/>)}
+            {astronomySearchRes.map(m => <MediaCard key={m.index} astronomyObject={m} isFavourite={false} showDesc={false} saveToDB={props.saveToDB}/>)}
         </div>
     )
 }

@@ -17,6 +17,15 @@ function App() {
     favouritesArray.push(astronomyObject)
     setSavedData(favouritesArray)
   }
+
+  const deleteFromDB = (astronomyObject) => {
+    console.log(astronomyObject)
+    // axios.post(`http://localhost:3001/astronomy`, { astronomyObject })
+    
+    // let favouritesArray = [...savedData]
+    // favouritesArray.push(astronomyObject)
+    // setSavedData(favouritesArray)
+  }
   
   return (
     <Router>
@@ -24,7 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search saveToDB={saveToDB}/>} />
-          <Route path="/favourites" element={<Favourites savedData={savedData}/>} />
+          <Route path="/favourites" element={<Favourites savedData={savedData} deleteFromDB={deleteFromDB}/>} />
         </Routes>
     </Router>
   );
